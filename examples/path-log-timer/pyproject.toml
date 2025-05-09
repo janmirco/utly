@@ -1,0 +1,20 @@
+[project]
+name = "path-log-timer"
+version = "0.1.0"
+description = "Show how to handle path, log, timer"
+readme = "README.md"
+authors = [
+    { name = "Jan Mirco Pfeifer", email = "126580858+janmirco@users.noreply.github.com" }
+]
+license = "MIT"
+requires-python = ">=3.12"
+dependencies = [
+    "utly",
+]
+
+[tool.pyright]
+venvPath = "."
+venv = ".venv"
+
+[tool.uv.sources]
+utly = { path = "../../", editable = true }
