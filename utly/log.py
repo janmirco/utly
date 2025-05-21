@@ -1,5 +1,6 @@
 import logging
 from pathlib import Path
+from typing import Callable
 
 
 def set_up(output_dir: Path, log_file_name: str = "app.log") -> None:
@@ -13,13 +14,13 @@ def set_up(output_dir: Path, log_file_name: str = "app.log") -> None:
     )
 
 
-def start(msg: str) -> None:
-    logging.info(f"Starting {msg}...")
+def start(msg: str, log_func: Callable = logging.debug) -> None:
+    log_func(f"Starting {msg}...")
 
 
-def end(msg: str) -> None:
-    logging.info(f"Finished {msg}.")
+def end(msg: str, log_func: Callable = logging.debug) -> None:
+    log_func(f"Finished {msg}.")
 
 
-def cwd() -> None:
-    logging.info(f"Current working directory: {Path.cwd()}")
+def cwd(log_func: Callable = logging.debug) -> None:
+    log_func(f"Current working directory: {Path.cwd()}")
