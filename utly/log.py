@@ -2,12 +2,21 @@ import logging
 from pathlib import Path
 
 
-def set_up(output_dir: Path, log_file_name: str = "app.log") -> None:
+def set_up(
+    output_dir: Path,
+    level: int = logging.INFO,
+    format: str = "[%(levelname)s] %(asctime)s - %(message)s",
+    terminal_output: bool = True,
+    file_output: bool = True,
+    file_name: str = "app.log",
+) -> None:
+    handlers = []
+    if terminal_output:
+        handlers.append(logging.StreamHandler())
+    if file_output:
+        handlers.append(logging.FileHandler(output_dir / Path(file_name)))
     logging.basicConfig(
-        level=logging.INFO,
-        format="[%(levelname)s] %(asctime)s - %(message)s",
-        handlers=[
-            logging.StreamHandler(),  # terminal output
-            logging.FileHandler(output_dir / Path(log_file_name)),  # file output
-        ],
+        level=level,
+        format=format,
+        handlers=handlers if handlers else [logging.NullHandler()],
     )
