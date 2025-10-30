@@ -12,9 +12,9 @@ dependencies = [
     "utly",
 ]
 
+[tool.uv.sources]
+utly = { workspace = true }
+
 [tool.pyright]
 venvPath = "."
 venv = ".venv"
-
-[tool.uv.sources]
-utly = { path = "../../", editable = true }
