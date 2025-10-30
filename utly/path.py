@@ -15,7 +15,7 @@ def set_up_output(
     return output_dir
 
 
-def set_up_input(input_dir: Path) -> Path:
-    if not input_dir.exists():
-        raise FileNotFoundError(f"Given input directory does not exist: {input_dir}")
-    return input_dir
+def set_up_data(data_dir: Path) -> Path:
+    if not data_dir.exists():
+        raise FileNotFoundError(f"Given data directory does not exist: {data_dir}")
+    return data_dir
