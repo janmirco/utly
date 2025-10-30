@@ -16,5 +16,5 @@ dependencies = [
 utly = { workspace = true }
 
 [tool.pyright]
-venvPath = "."
+venvPath = "../.."
 venv = ".venv"
