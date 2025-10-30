@@ -20,5 +20,5 @@ requires-dist = [{ name = "utly", editable = "." }]
 
 [[package]]
 name = "utly"
-version = "0.1.4"
+version = "0.1.5"
 source = { editable = "." }
